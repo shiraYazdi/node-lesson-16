@@ -4,12 +4,14 @@ import { connectTodb } from "./config/DBconnection.js"
 import bookRouter from "./routes/book.js";
 import userRouter from "./routes/user.js";
 import { errorHandling } from "./middlewares/errorHandling.js";
+import cors from "cors"
 
 config();
 connectTodb();
 const app = express();
 
 app.use(express.json());
+app.use(cors())
 app.use("/api/books", bookRouter)
 app.use("/api/users", userRouter)
 app.use(errorHandling)

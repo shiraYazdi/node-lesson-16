@@ -10,7 +10,8 @@ let userSchema = mongoose.Schema({
     userName: String,
     password: String,
     email: String,
-    books: [minimumBook]
+    books: [minimumBook],
+    role: {type: String, default: "user"}
 
 })
 
